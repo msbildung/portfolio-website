@@ -1,0 +1,27 @@
+<!-- templates/projekte.html -->
+{% extends 'base.html' %}
+
+{% block title %}Meine Projekte{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Meine Projekte</h1>
+    <p class="lead">Hier ist eine Auswahl meiner Arbeiten. Klicke auf die Titel, um mehr zu erfahren.</p>
+    
+    <div class="project-grid">
+        {% for projekt in projekte %}
+            <div class="card">
+                <h3>{{ projekt.titel }}</h3>
+                <p>{{ projekt.beschreibung }}</p>
+                <div class="tags">
+                    {% for tech in projekt.technologien %}
+                        <span class="tag">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+                <a href="{{ url_for('projekt_detail', slug=projekt.slug) }}" class="button-primary">Details ansehen</a>
+                <a href="{{ projekt.link }}" target="_blank" class="button-secondary">Zum GitHub-Repo</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

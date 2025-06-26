@@ -1,0 +1,68 @@
+<!-- templates/ueber-mich.html -->
+{% extends 'base.html' %}
+
+{% block title %}Über Mich{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Über Mich</h1>
+    <div class="about-me-flex">
+        <div class="about-me-text">
+            <p class="lead">Hallo! Ich bin [Dein Name].</p>
+            <p>
+                Seit ich [deine "Origin Story", z.B. "meinen ersten 'Hello World'-Moment hatte"], bin ich fasziniert davon, wie man mit Code Ideen zum Leben erwecken kann. 
+                Meine Leidenschaft liegt besonders im Bereich [deine Spezialisierung, z.B. "der Backend-Entwicklung mit Python und dem Erstellen sauberer APIs"].
+            </p>
+            <p>
+                Ich suche nach einer [Junior-Position / Praktikum / ...], in der ich meine Kenntnisse einbringen, mich weiterentwickeln und Teil eines motivierten Teams werden kann.
+            </p>
+        </div>
+        <!-- ... innerhalb von templates/ueber-mich.html ... -->
+<hr style="margin: 3rem 0;"> <!-- Trennlinie -->
+
+<div class="skills-section">
+    <h2>Meine Fähigkeiten</h2>
+    <p>Diese Technologien und Werkzeuge setze ich regelmäßig ein:</p>
+    
+    <div class="skills-grid">
+        <div class="skill-category">
+            <h3>Programmiersprachen</h3>
+            <ul>
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>HTML5 & CSS3</li>
+            </ul>
+        </div>
+        <div class="skill-category">
+            <h3>Frameworks & Bibliotheken</h3>
+            <ul>
+                <li>Flask</li>
+                <li>Django (Grundlagen)</li>
+                <li>Node.js (Grundlagen)</li>
+            </ul>
+        </div>
+        <div class="skill-category">
+            <h3>Tools & Sonstiges</h3>
+            <ul>
+                <li>Git & GitHub</li>
+                <li>SQL (PostgreSQL)</li>
+                <li>Docker</li>
+                <li>REST APIs</li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+        <!-- WICHTIG: Speichere deinen Lebenslauf in static/downloads/lebenslauf.pdf -->
+        <a href="{{ url_for('static', filename='downloads/lebenslauf.pdf') }}" class="button-primary" download>
+            Lebenslauf herunterladen (PDF)
+        </a>
+    </div>
+</div>
+        <div class="about-me-image">
+            <!-- WICHTIG: Speichere dein Foto in static/images/profilbild.jpg -->
+            <img src="{{ url_for('static', filename='images/profilbild.jpg') }}" alt="Ein professionelles Foto von [Dein Name]">
+        </div>
+    </div>
+</div>
+{% endblock %}

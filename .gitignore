@@ -1,0 +1,36 @@
+# 1. Virtuelle Umgebungen
+# Diese sind riesig, betriebssystemabhängig und sollten NIE versioniert werden.
+# Die requirements.txt-Datei ist der Weg, sie zu reproduzieren.
+venv/
+.venv/
+env/
+.env
+
+# 2. Python Bytecode und Cache-Dateien
+# Werden vom Interpreter generiert und gehören nicht zum Quellcode.
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 3. Projekt-spezifische, generierte Dateien (SEHR WICHTIG!)
+# Diese Datei enthält sensible Daten (E-Mail-Adressen!) und darf
+# auf keinen Fall in einem öffentlichen Repository landen!
+kontaktnachrichten.txt
+instance/
+//cspell:ignore sqlite3
+*.sqlite3
+*.db
+
+# 4. Betriebssystem-spezifische Dateien
+# Verhindert Müll von macOS, Windows und Linux.
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 5. IDE- und Editor-spezifische Konfigurationsordner
+# Jeder Entwickler hat seine eigene Konfiguration.
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

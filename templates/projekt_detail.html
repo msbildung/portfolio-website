@@ -1,0 +1,25 @@
+<!-- templates/projekt_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ projekt.titel }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ projekt.titel }}</h1>
+    <p class="lead">{{ projekt.beschreibung }}</p>
+    
+    <!-- Hier könntest du Screenshots einfügen -->
+
+    <h3>Verwendete Technologien:</h3>
+    <div class="tags">
+        {% for tech in projekt.technologien %}
+            <span class="tag">{{ tech }}</span>
+        {% endfor %}
+    </div>
+
+    <h3>Projektbeschreibung & Herausforderungen:</h3>
+    <p>{{ projekt.details | safe }}</p> <!-- | safe, falls du HTML im Text hast -->
+
+    <a href="{{ projekt.link }}" target="_blank" class="button-primary">Zum GitHub-Repository</a>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+<!-- templates/index.html -->
+{% extends 'base.html' %}
+
+{% block title %}Startseite{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Willkommen auf meinem Portfolio!</h1>
+        <p class="lead">
+            Ich bin [Dein Name], ein leidenschaftlicher Programmierer mit Fokus auf [Deine Spezialisierung, z.B. Web-Entwicklung mit Python].
+            Ich liebe es, sauberen, effizienten Code zu schreiben und kreative Lösungen für komplexe Probleme zu finden.
+        </p>
+        <a href="{{ url_for('projekte') }}" class="button-primary">Schau dir meine Projekte an!</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Dieser Block erlaubt jeder Seite, einen eigenen Titel zu haben -->
+    <title>{% block title %}{% endblock %} - Mein Portfolio</title>
+    
+    <!-- Hier binden wir unsere CSS-Datei ein. 
+        url_for('static', ...) ist der korrekte Flask-Weg, um auf Dateien im 'static'-Ordner zu verlinken. -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="{{ url_for('home') }}" class="nav-brand">[Dein Name]</a>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Start</a></li>
+                <li><a href="{{ url_for('projekte') }}">Projekte</a></li>
+                <!-- Später können wir hier mehr hinzufügen -->
+                <li><a href="/ueber-mich">Über Mich</a></li>
+                <li><a href="/kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Das ist der Platzhalter, wo der Inhalt der einzelnen Seiten eingefügt wird. -->
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2024 [Dein Name]. Alle Rechte vorbehalten.</p>
+        <!-- Links zu GitHub/LinkedIn etc. kommen hier gut hin -->
+    </footer>
+
+</body>
+</html>

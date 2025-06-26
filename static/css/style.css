@@ -1,0 +1,268 @@
+/* static/css/style.css */
+
+/* Grundlegende Einstellungen und Variablen für Farben/Schrift */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --text-color: #212529;
+    --card-background: #ffffff;
+    --font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Navigation */
+nav {
+    background-color: var(--card-background);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+nav .nav-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    position: relative; /* Nötig für das Pseudoelement */
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Fügt eine animierte Linie unter dem Link hinzu */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0); /* Startet unsichtbar */
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1); /* Wird beim Hover sichtbar */
+    transform-origin: left;
+}
+
+/* Hauptinhalt und Typografie */
+h1 {
+    color: var(--primary-color);
+}
+
+.lead {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
+
+/* Projekt-Grid und Karten */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background-color: var(--card-background);
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+/* Tags für Technologien */
+.tags .tag {
+    display: inline-block;
+    background-color: #e9ecef;
+    color: var(--secondary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Buttons */
+.button-primary, .button-secondary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.button-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.button-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    background-color: #e9ecef;
+    color: var(--secondary-color);
+}
+/* static/css/style.css */
+.about-me-flex {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.about-me-text {
+    flex: 2; /* Text nimmt mehr Platz ein */
+}
+
+.about-me-image {
+    flex: 1;
+}
+
+.about-me-image img {
+    max-width: 100%;
+    border-radius: 50%; /* Rundes Bild wirkt modern */
+    border: 5px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Für kleinere Bildschirme (Handy) */
+@media (max-width: 768px) {
+    .about-me-flex {
+        flex-direction: column;
+    }
+}
+/* static/css/style.css */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.skill-category h3 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-category ul li {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23007bff" class="bi bi-check-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/></svg>') no-repeat left center;
+    padding-left: 25px; /* Platz für das Icon */
+    margin-bottom: 0.5rem;
+}
+/* Formular-Styling */
+.contact-form {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    box-sizing: border-box; /* Wichtig für korrekte Breite */
+}
+
+.contact-form button {
+    width: 100%;
+    border: none;
+}
+
+/* Alert-Boxen für Flash-Nachrichten */
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
